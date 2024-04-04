@@ -1,0 +1,246 @@
+---
+import Container from '../shared/Container.astro'
+import { z } from 'zod'
+
+const date = [
+  'En cualquier momento del día',
+  'Por la mañana (de 9 a 12 hs)',
+  'Por la tarde (de 14 a 18 hs)',
+] as const
+
+const medio = [
+  'Es indistinto',
+  'Correo electrónico',
+  'Llamado telefónico',
+  'Whatsapp',
+] as const
+
+const formSchema = z.object({
+  name: z
+    .string()
+    .min(3, { message: 'El nombre debe tener al menos 3 caracteres' }),
+  surname: z
+    .string()
+    .min(3, { message: 'El apellido debe tener al menos 3 caracteres' }),
+  email: z.string().email({
+    message: 'El email debe ser una dirección de correo válida',
+  }),
+  phone: z
+    .string()
+    .max(10, { message: 'Error, el teléfono debe ser 1155554444' }),
+  company: z.string().min(3, {
+    message: 'El nombre de la empresa debe tener al menos 3 caracteres',
+  }),
+  date: z.enum(date, {
+    errorMap: () => ({ message: 'Error, selecciona una opción' }),
+  }),
+  contact: z.enum(medio, {
+    errorMap: () => ({ message: 'Error, selecciona una opción' }),
+  }),
+  message: z.string().min(10, {
+    message: 'La consulta debe tener al menos 10 caracteres',
+  }),
+})
+
+
+
+if (Astro.request.method === 'POST') {
+  try {
+    const data = await Astro.request.formData()
+
+    const formData = formSchema.parse({
+      name: data.get('floating_first_name'),
+      surname: data.get('floating_last_name'),
+      email: data.get('floating_email'),
+      phone: data.get('floating_phone'),
+      company: data.get('floating_company'),
+      date: data.get('floating_date'),
+      contact: data.get('floating_contact'),
+      message: data.get('floating_message'),
+    })
+
+
+    console.log('Formulario enviado', formData)
+  } catch (error) {
+    console.log('Error al cargar los datos del formulario', error)
+  }
+}
+---
+
+<section
+  id='cta'
+  class='pb-20'>
+  <Container>
+    <div
+      class='w-full relative py-8 md:py-10 px-6 md:px-8 rounded-2xl bg-gradient-to-tr from-gray-100 to-gray-200 dark:from-gray-900'>
+      <div class='absolute right-0 top-0 h-full w-full flex justify-end'>
+        <div class='w-28 h-28 overflow-auto flex rounded-xl relative blur-2xl'>
+          <span
+            class='absolute w-16 h-16 -top-1 -right-1 bg-green-500 rounded-md rotate-45'
+          ></span>
+          <span
+            class='absolute w-16 h-16 -bottom-1 -right-1 bg-[#FCDC58] rounded-md rotate-45'
+          ></span>
+          <span
+            class='absolute w-16 h-16 -bottom-1 -left-1 bg-primary rounded-md rotate-45'
+          ></span>
+        </div>
+      </div>
+
+      <div class='absolute left-0 bottom-0 h-full w-full flex items-end'>
+        <div class='w-28 h-28 overflow-auto flex rounded-xl relative blur-2xl'>
+          <span
+            class='absolute w-16 h-16 -top-1 -right-1 bg-green-500 rounded-md rotate-45'
+          ></span>
+          <span
+            class='absolute w-16 h-16 -bottom-1 -right-1 bg-[#FCDC58] rounded-md rotate-45'
+          ></span>
+          <span
+            class='absolute w-16 h-16 -bottom-1 -left-1 bg-primary rounded-md rotate-45'
+          ></span>
+        </div>
+      </div>
+      <div class='mx-auto max-w-xl md:max-w-2xl relative'>
+        <h6
+          class='text-3xl/tight sm:text-4xl/tight md:text-5xl/tight
+          font-bold text-heading-1 text-center mb-12'>
+          Realizanos tu consulta
+        </h6>
+        <p class='text-lg text-gray-600 dark:text-gray-400 mb-8'>
+          Contanos tus necesidades para que podamos cotizarte un plan a medida
+          sin cargo.
+        </p>
+
+        <form
+          method='POST'
+          class='max-w-md mx-auto'>
+          <div class='grid md:grid-cols-2 md:gap-6'>
+            <div class='relative z-0 w-full mb-5 group'>
+              <input
+                type='text'
+                name='floating_first_name'
+                id='floating_first_name'
+                class='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer'
+                placeholder=' '
+                required
+              />
+              <label
+                for='floating_first_name'
+                class='peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+                >Nombre</label
+              >
+            </div>
+            <div class='relative z-0 w-full mb-5 group'>
+              <input
+                type='text'
+                name='floating_last_name'
+                id='floating_last_name'
+                class='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer'
+                placeholder=' '
+                required
+              />
+              <label
+                for='floating_last_name'
+                class='peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+                >Apellido</label
+              >
+            </div>
+          </div>
+          <div class='relative z-0 w-full mb-5 group'>
+            <input
+              type='email'
+              name='floating_email'
+              id='floating_email'
+              class='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer'
+              placeholder=' '
+              required
+            />
+            <label
+              for='floating_email'
+              class='peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+              >Correo electronico</label
+            >
+          </div>
+
+          <div class='grid md:grid-cols-2 md:gap-6'>
+            <div class='relative z-0 w-full mb-5 group'>
+              <input
+                type='tel'
+                name='floating_phone'
+                id='floating_phone'
+                class='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer'
+                placeholder=' '
+                required
+              />
+              <label
+                for='floating_phone'
+                class='peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+                >Teléfono</label
+              >
+            </div>
+            <div class='relative z-0 w-full mb-5 group'>
+              <input
+                type='text'
+                name='floating_company'
+                id='floating_company'
+                class='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer'
+                placeholder=' '
+                required
+              />
+              <label
+                for='floating_company'
+                class='peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+                >Nombre de tu empresa
+              </label>
+            </div>
+          </div>
+          <div class='relative z-0 w-full mb-5 group'>
+            <select
+              name='floating_date'
+              id='floating_company'
+              class='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer'
+              required>
+              <option value=''>¿En qué momento podemos contactarte?</option>
+              <option value='completo'>En cualquier momento del día</option>
+              <option value='mañana'>Por la mañana (de 9 a 12 hs)</option>
+              <option value='tarde'>Por la tarde (de 14 a 18 hs)</option>
+            </select>
+          </div>
+          <div class='relative z-0 w-full mb-5 group'>
+            <select
+              name='floating_contact'
+              id='floating_company'
+              class='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer'
+              required>
+              <option value=''
+                >¿Por qué medio preferís que te contactemos?</option
+              >
+              <option value='indestinto'>Es indestinto</option>
+              <option value='email'>Correo electrónico</option>
+              <option value='telefono'>Llamado telefónico</option>
+              <option value='whatsapp'>Whatsapp</option>
+            </select>
+          </div>
+          <div class='relative z-0 w-full mb-5 group'>
+            <label
+              for=''
+              class='text-sm text-gray-900'
+              >Dejanos tu consulta</label
+            >
+            <textarea
+              name='floating_message'
+              id='floating_message'
+              class='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer resize-none'
+              required>
+            </textarea>
+          </div>
+          <button
+            type='submit'
+            class='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
+            >Enviar consulta
+          </button>
+        </form>
+      </div>
+    </div>
+  </Container>
+</section>

@@ -1,51 +1,70 @@
 ---
-import Container from "../shared/Container.astro";
-import Paragraph from "../shared/Paragraph.astro";
-import Title from "../shared/Title.astro";
-
+import Container from '../shared/Container.astro'
+import Paragraph from '../shared/Paragraph.astro'
+import Title from '../shared/Title.astro'
 ---
 
-<section id="features">
-    <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
-        
-        <div class="flex-1 flex midmd:w-7/12 lg:w-1/2 flex-col">
-            <Title>
-                We provide Important Features for Digital Marketing
-            </Title>
-            <Paragraph className="mt-8">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                <br> 
-                Minus, saepe aliquid autem alias vero distinctio dignissimos consequatur?
-            </Paragraph>
-            <Paragraph className="mt-2">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus, saepe aliquid autem alias vero distinctio dignissimos consequatur?
-            </Paragraph>
-            <ul class="mt-8 space-y-4 text-heading-3 font-medium">
-                <li>
-                    <span class="font-bold bg-box-bg rounded-full w-8 h-8 mr-3 text-primary inline-flex justify-center items-center">&checkmark;</span> Web site Analysis
-                </li>
-                <li>
-                    <span class="font-bold bg-box-bg rounded-full w-8 h-8 mr-3 text-primary inline-flex justify-center items-center">&checkmark;</span> Free optimazation.
-                </li>
-                <li>
-                    <span class="font-bold bg-box-bg rounded-full w-8 h-8 mr-3 text-primary inline-flex justify-center items-center">&checkmark;</span> Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                </li>
-                <li>
-                    <span class="font-bold bg-box-bg rounded-full w-8 h-8 mr-3 text-primary inline-flex justify-center items-center">&checkmark;</span> Content Optimization.
-                </li>
-            </ul>
-        </div>
+<section id='features'>
+  <Container className='flex flex-col midmd:flex-row gap-10 lg:gap-12'>
+    <div class='flex-1 flex midmd:w-7/12 lg:w-1/2 flex-col'>
+      <h3
+        class='text-3xl/tight sm:text-4xl/tight md:text-5xl/tight
+          font-bold text-heading-1'>
+        Impulzá tus <span
+          class='text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600'
+          >ventas</span
+        > con un equipo de experiencia comprobada.
+      </h3>
+      <Paragraph className='mt-8'>
+        Sabemos que cada interacción con un cliente potencial es una oportunidad
+        única para generar ventas. Contamos con el personal y la experiencia
+        para llevar tu negocio al siguiente nivel.
+      </Paragraph>
+      <ul class='mt-8 space-y-4 text-heading-3 font-medium'>
+        <li>
+          <span
+            class='font-bold bg-box-bg rounded-full w-8 h-8 mr-3 text-primary inline-flex justify-center items-center'
+            >&checkmark;</span
+          > Potencial.
+        </li>
+        <li>
+          <span
+            class='font-bold bg-box-bg rounded-full w-8 h-8 mr-3 text-primary inline-flex justify-center items-center'
+            >&checkmark;</span
+          > Crecimiento.
+        </li>
+        <li>
+          <span
+            class='font-bold bg-box-bg rounded-full w-8 h-8 mr-3 text-primary inline-flex justify-center items-center'
+            >&checkmark;</span
+          > Interacción.
+        </li>
+        <li>
+          <span
+            class='font-bold bg-box-bg rounded-full w-8 h-8 mr-3 text-primary inline-flex justify-center items-center'
+            >&checkmark;</span
+          > Potencial.
+        </li>
+      </ul>
+    </div>
 
-        <div class="max-w-md mx-auto midmd:max-w-none lg:mx-0  lg:pr-10 xl:pr-2 flex-1 flex w-11/12 midmd:w-5/12 lg:w-1/2 midmd:h-auto">
-            <div class="w-full h-80 sm:h-96 midmd:h-full relative">
-                <div class="absolute rotate-45 -left-5 md:-left-10 lg:-left-20 xl:-left-24 p-1 top-1/2 w-16 h-16 bg-gradient-to-br from-primary to-orange-400 blur-3xl opacity-50"></div>
-                <div class="absolute  p-1 -top-4 md:-top-10 right-0 w-20 h-20 bg-gradient-to-br from-primary to-orange-400 rounded-full blur-3xl opacity-60"></div>
-                
-                <span class="absolute w-full aspect-[16/5] -skew-x-12 rounded-full bg-gradient-to-tr from-primary to-green-400 opacity-40 blur-2xl left-0 bottom-0"></span>
-                <img src={"/images/dev-with-c.webp"} alt="banner image" 
-                width="1240" height="1385"
-                class=" w-auto left-1/2 -translate-x-1/2 absolute bottom-0 max-h-full" />
-            </div>
-        </div>
-    </Container>
+    <div
+      class='max-w-md mx-auto midmd:max-w-none lg:mx-0 lg:pr-10 xl:pr-2 flex-1 flex w-11/12 midmd:w-5/12 lg:w-1/2 midmd:h-auto'>
+      <div class='w-full h-80 sm:h-96 midmd:h-full relative'>
+        <span
+          class='absolute -left-6 md:-left-12 top-24 lg:-top-4 w-24 h-24 rotate-90 skew-x-12 rounded-3xl bg-green-400 blur-3xl opacity-60 lg:opacity-95'
+        ></span>
+        <span
+          class='absolute -right-4 -bottom-2 w-24 h-24 rounded-3xl bg-primary blur-3xl opacity-80'
+        ></span>
+        <img
+          src={'/images/business.webp'}
+          alt='Impulzá tus ventas con un equipo de experiencia comprobada.'
+          width='800'
+          height='1385'
+          class='lg:absolute lg:w-full lg:h-full rounded-3xl object-cover object-center lg:max-h-none max-h-96 shadow-md'
+        />
+      </div>
+    </div>
+  </Container>
 </section>
