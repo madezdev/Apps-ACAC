@@ -17,7 +17,10 @@ type ServicesProps = {
     <div class='text-center max-w-3xl mx-auto space-y-4'>
       <Title> Nuestros servicios </Title>
       <Paragraph>
-       Sabemos que cada interacción con el cliente potencial es una <span>oportunidad única para generar ventas.</span> Contamos con el personal y la experiencia para llevar a tu negocio al próximo nivel.
+        Sabemos que cada interacción con el cliente potencial es una <span
+          >oportunidad única para generar ventas.</span
+        > Contamos con el personal y la experiencia para llevar a tu negocio al próximo
+        nivel.
       </Paragraph>
     </div>
     <div class='grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8'>
@@ -27,7 +30,8 @@ type ServicesProps = {
             <Service
               title={service.title}
               description={service.description}
-              icon={service.icon}></Service>
+              icon={service.icon}
+            />
           )
         })
       }

@@ -20,7 +20,7 @@ const footerNav1 = [
 
 <div class='mt-16'></div>
 <footer
-  class='relative bg-gradient-to-tr from-gray-100 to-gray-200 dark:from-gray-900 pt-28 rounded-t-3xl '>
+  class='relative bg-gradient-to-tr from-gray-100 to-gray-200 dark:from-gray-900 pt-28 rounded-t-3xl'>
   <div class='absolute right-0 top-0 h-full w-full flex justify-end'>
     <div class='w-28 h-28 overflow-auto flex rounded-xl relative blur-2xl'>
       <span
@@ -52,10 +52,9 @@ const footerNav1 = [
     <span
       class='absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 blur-2xl opacity-20 w-24 h-16 sm:w-48 sm:h-36 rounded-full rotate-12 skew-x-6 bg-primary'
     ></span>
-    <div
-      class='flex items-center justify-between relative'>
+    <div class='flex items-center justify-between relative'>
       <div class='h-auto flex flex-col basis-1/2'>
-        <div class='h-full '>
+        <div class='h-full'>
           <a
             href='#'
             class='relative flex items-center gap-3'>
@@ -139,16 +138,17 @@ const footerNav1 = [
         </div>
       </div>
 
-      <div class='flex gap-4'> 
-        {footerNav1.map(item => (
-            <a 
-            href={item.itemLink}
-            class="duration-300 font-medium ease-linear hover:text-primary transition-colors text-lg dark:text-gray-300 hover:dark:text-primary" 
-            >
-            {item.itemText}</a>
-        ))}
+      <div class='flex gap-4'>
+        {
+          footerNav1.map((item) => (
+            <a
+              href={item.itemLink}
+              class='duration-300 font-medium ease-linear hover:text-primary transition-colors text-lg dark:text-gray-300 hover:dark:text-primary'>
+              {item.itemText}
+            </a>
+          ))
+        }
       </div>
-
     </div>
   </Container>
   <div class='bg-gradient-to-tl from-box-bg py-2 relative'>

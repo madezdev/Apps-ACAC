@@ -4,8 +4,7 @@ import Hero from '../components/sections/Hero.astro'
 import Services from '../components/sections/Services.astro'
 import AboutUs from '../components/sections/AboutUs.astro'
 import Features from '../components/sections/Features.astro'
-import CTA from '../components/sections/Form.astro'
-import Brands from '../components/sections/Brands.astro'
+import { Form } from '../components/react/Form.tsx'
 ---
 
 <Layout title='Bienvenidos'>
@@ -14,7 +13,9 @@ import Brands from '../components/sections/Brands.astro'
     <!-- <Brands/> -->
     <Services />
     <AboutUs />
-    <Features/>
-    <CTA/>
+    <Features />
+    <Form client:load/>
   </main>
 </Layout>
+../components/sections/Form.tsx
+../components/react/Form
