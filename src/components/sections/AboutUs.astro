@@ -8,7 +8,7 @@ import Title from '../shared/Title.astro'
 <section id='about-us'>
   <Container className='flex flex-col  midmd:flex-row gap-10 lg:gap-12 '>
     <div
-      class='max-w-md mx-auto midmd:max-w-none lg:mx-0 lg:pr-10 xl:pr-2 flex-1 flex w-11/12 midmd:w-5/12 lg:w-1/2 midmd:h-auto'>
+      class='max-w-md mx-auto midmd:max-w-none lg:mx-0 lg:pr-10 xl:pr-2 flex-1 flex midmd:w-5/12 lg:w-1/2 midmd:h-auto'>
       <div class='w-full h-80 sm:h-96 midmd:h-full relative'>
         <span
           class='absolute -left-6 md:-left-12 top-24 lg:-top-4 w-24 h-24 rotate-90 skew-x-12 rounded-3xl bg-green-400 blur-2xl opacity-60 lg:opacity-95'
@@ -18,15 +18,15 @@ import Title from '../shared/Title.astro'
         ></span>
         <img
           src={'/images/CustomerService.webp'}
-          alt='banner image'
+          alt='Imagen. Somos el futuro de la comunicación'
           width='1240'
           height='1385'
-          class='lg:absolute lg:w-full lg:h-full rounded-3xl object-cover object-right lg:max-h-none max-h-96 shadow-md'
+          class='lg:absolute lg:w-full lg:h-full rounded-3xl object-cover object-right lg:max-h-none md:max-h-96 shadow-md mt-8 md:mt-0'
         />
       </div>
     </div>
     <div class='flex-1 flex midmd:w-7/12 lg:w-1/2 flex-col'>
-      <Title> Somos el futuro de la comunicación </Title>
+      <Title> Somos el <span class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600 font-bold">futuro</span> de la comunicación. </Title>
       <Paragraph className='mt-8'>
         Creemos que las claves de un mensaje exitoso consisten en una clara
         visión del mercado, un conocimiento de 360° del cliente y de un sistema
