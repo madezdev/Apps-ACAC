@@ -11,10 +11,10 @@ const { title, description } = Astro.props
 <div
   class='p-5 sm:p-6 lg:p-8 rounded-3xl border border-box-border bg-box-bg shadow-lg shadow-box-shadow relative overflow-hidden'>
   <div
-    class='rounded-xl bg-gray-300 dark:bg-gray-950 p-3 text-heading-1 w-max relative'>
+    class='rounded-xl bg-lime-600/30 dark:bg-gray-950 p-3 text-heading-1 w-max relative'>
     <slot name='icon' />
   </div>
-  <h2 class='md:text-xl font-semibold text-heading-2 mt-6 mb-4'> {title} </h2>
+  <h2 class='md:text-lg font-semibold mt-6 mb-4 text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600'> {title} </h2>
   <Paragraph>
     {description}
   </Paragraph>

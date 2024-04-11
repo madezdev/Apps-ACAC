@@ -1,8 +1,6 @@
 ---
-import Button from '../shared/Button.astro'
 import Container from '../shared/Container.astro'
 import Paragraph from '../shared/Paragraph.astro'
-import ByNumber from './ByNumber.astro'
 ---
 
 <section class='relative pt-32 lg:pt-36'>
@@ -26,9 +24,9 @@ import ByNumber from './ByNumber.astro'
         class='text-3xl/tight sm:text-4xl/tight md:text-5xl/tight xl:text-6xl/tight
              font-bold text-heading-1'>
         <span
-          class='text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600'
-          >ACAC</span
-        >
+          class=' text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600'
+          >ACAC
+        </span>
         <br />Lider en servicios de atención al cliente
       </h1>
       <Paragraph className='mt-8'>
@@ -37,30 +35,7 @@ import ByNumber from './ByNumber.astro'
           optimizar y aumentar tu rentabilidad.</stron
         >
       </Paragraph>
-      <div class='mt-10 w-full flex max-w-md mx-auto lg:mx-0'>
-        <div class='flex sm:flex-row flex-col gap-5 w-full'>
-          <Button
-            variant={'primary'}
-            className={'min-w-max text-white'}>
-            <span class='hidden sm:flex relative z-[5]'> Conocenos </span>
-            <span class='flex sm:hidden relative z-[5]'>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                fill='none'
-                viewBox='0 0 24 24'
-                stroke-width='1.5'
-                stroke='currentColor'
-                class='w-5 h-5'>
-                <path
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                  d='M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5'
-                ></path>
-              </svg>
-            </span>
-          </Button>
-        </div>
-      </div>
+      
     </div>
 
     <div
